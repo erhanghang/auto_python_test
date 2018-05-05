@@ -23,7 +23,7 @@ sys.setdefaultencoding('utf8')
 # 当前脚本所在文件真实路径
 cur_path = os.path.dirname(os.path.realpath(__file__))
 
-def add_case(caseName="testCase", rule="test.py"):
+def add_case(caseName="testCase", rule="test*.py"):
     '''第一步：加载所有的测试用例'''
     case_path = os.path.join(cur_path, caseName)  # 用例文件夹
     # 如果不存在这个case文件夹，就自动创建一个
@@ -100,7 +100,7 @@ if __name__ == "__main__":
     report_file = get_report_file(report_path)  # 3获取最新的测试报告
     # #邮箱配置
     sender = "617955991@qq.com"
-    psw = 'pevlpowsdmoibdih'
+    psw = 'iqiipqfzsandbeae'
     smtp_server = "smtp.qq.com"
     port = 465
     receiver = ["944354642@qq.com",'yupeng0310@126.com','yupeng@gaosiedu.com']
