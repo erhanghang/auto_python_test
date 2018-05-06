@@ -1,7 +1,7 @@
 # coding=utf-8
 import unittest
 import time
-from common.HTMLTestRunner_yo import HTMLTestRunner
+from common.HTMLTestRunner_PY3 import HTMLTestRunner
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 import smtplib

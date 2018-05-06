@@ -12,9 +12,10 @@ class guanli_test(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         '''初始化浏览器，页面实例化'''
-        option = webdriver.ChromeOptions()
-        option.add_argument('disable-infobars')
-        cls.driver=webdriver.Chrome(chrome_options=option)
+        # option = webdriver.ChromeOptions()
+        # option.add_argument('disable-infobars')
+        # cls.driver=webdriver.Chrome(chrome_options=option)
+        cls.driver=webdriver.Firefox()
         cls.login=loginPage(cls.driver)
         cls.ins=insPage(cls.driver)
         cls.login.login_glzx()
