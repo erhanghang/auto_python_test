@@ -1,36 +1,34 @@
 #-*- coding:utf-8 -*-
 #author:yupeng
-#机构管理
+
 from selenium import webdriver
-import time
-import unittest
+from page.recharge_manage.inslistPage import inslistPage
 from page.loginPage import loginPage
-from page.content_manage.lessonmanagePage import lessonmanagePage
+import unittest
 
 
 class guanli_test(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        '''初始化浏览器，页面实例化'''
-        option = webdriver.ChromeOptions()
+        option=webdriver.ChromeOptions()
         option.add_argument('disable-infobars')
         cls.driver=webdriver.Chrome(chrome_options=option)
-        # cls.driver=webdriver.Firefox()
         cls.login=loginPage(cls.driver)
-        cls.lessonmanage=lessonmanagePage(cls.driver)
+        cls.inslist=inslistPage(cls.driver)
         cls.login.login_glzx()
 
     def setUp(self):
         '''登录'''
-        print('操作机构内容')
+        print('操作销售管管理内容')
 
-    def test_upfile_01(self):
-        '''课节管理中上传课件'''
-        self.lessonmanage.click_contentmanage()
-        self.lessonmanage.click_lessonmanage()
-        self.lessonmanage.upfile()
-
-
+    def test_insmanage(self):
+        '''销售管理客户管理查询'''
+        self.inslist.click_rechargemanage()
+        self.inslist.click_inslist()
+        self.inslist.select_instype()
+        self.inslist.input_insname()
+        self.inslist.click_querybutton()
+        self.inslist.assertinsname()
 
     def tearDown(self):
         '''删除浏览器cookies并刷新'''
@@ -45,3 +43,5 @@ class guanli_test(unittest.TestCase):
 
 if __name__=='__main__':
     unittest.main()
+
+

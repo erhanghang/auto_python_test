@@ -1,8 +1,7 @@
 # coding=utf-8
 import unittest
 import time
-from common.HTMLTestRunner_PY3 import HTMLTestRunner
-#from BeautifulReport import BeautifulReport
+from BeautifulReport import BeautifulReport
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 import smtplib
@@ -44,17 +43,20 @@ def run_case(all_case, reportName="report"):
     report_path = os.path.join(cur_path, reportName)  # 用例文件夹
     # 如果不存在这个report文件夹，就自动创建一个
     if not os.path.exists(report_path):os.mkdir(report_path)
-    report_abspath = os.path.join(report_path, "report%s.html"%now)
-    print("report path:%s"%report_abspath)
-    with open(report_abspath, "wb") as fp:
-        runner = HTMLTestRunner(stream=fp,
-                                verbosity=2,
-                                title=u'自动化测试报告, 测试结果如下: ',
-                                description=u'用例执行情况')
+    # report_abspath = os.path.join(report_path, "report%s.html"%now)
+    # print("report path:%s"%report_abspath)
+    # with open(report_abspath, "wb") as fp:
+    #     runner = HTMLTestRunner(stream=fp,
+    #                             verbosity=2,
+    #                             title=u'自动化测试报告, 测试结果如下: ',
+    #                             description=u'用例执行情况')
+    #
+    #     调用add_case函数返回值
+    #     runner.run(all_case)
 
-        # 调用add_case函数返回值
-        runner.run(all_case)
-
+    #调用BeautifulReport报告模板的方法
+    runner = BeautifulReport(all_case)
+    runner.report(filename="report%s.html"%now, description='爱学习自动化测试报告', log_path=report_path)
 
 def get_report_file(report_path):
     '''第三步：获取最新的测试报告'''
@@ -101,7 +103,7 @@ if __name__ == "__main__":
     report_file = get_report_file(report_path)  # 3获取最新的测试报告
     # #邮箱配置
     sender = "617955991@qq.com"
-    psw = 'iqiipqfzsandbeae'
+    psw = 'swmcaryiqqapbfih'
     smtp_server = "smtp.qq.com"
     port = 465
     receiver = ["944354642@qq.com",'yupeng0310@126.com','yupeng@gaosiedu.com']

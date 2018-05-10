@@ -5,9 +5,9 @@ from selenium import webdriver
 from selenium.webdriver.common.action_chains import ActionChains
 from common.base import basePage
 
-url='http://guanli.aixuexi.com/'
-username='yupeng@gaosiedu.com'
-password='111111'
+url='*********'
+username='*********'
+password='****'
 expect_title='管理中心 统一角色访问控制系统 - CMS'
 
 class loginPage(basePage):
